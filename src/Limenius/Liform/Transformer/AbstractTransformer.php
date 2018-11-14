@@ -12,8 +12,8 @@
 namespace Limenius\Liform\Transformer;
 
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormTypeGuesserInterface;
 use Symfony\Component\Translation\TranslatorInterface;
+use Limenius\Liform\Guesser\ValidatorGuesser;
 
 /**
  * @author Nacho Martín <nacho@limenius.com>
@@ -26,15 +26,15 @@ abstract class AbstractTransformer implements TransformerInterface
     protected $translator;
 
     /**
-     * @var FormTypeGuesserInterface|null
+     * @var ValidatorGuesser|null
      */
     protected $validatorGuesser;
 
     /**
      * @param TranslatorInterface           $translator
-     * @param FormTypeGuesserInterface|null $validatorGuesser
+     * @param ValidatorGuesser|null $validatorGuesser
      */
-    public function __construct(TranslatorInterface $translator, FormTypeGuesserInterface $validatorGuesser = null)
+    public function __construct(TranslatorInterface $translator, ValidatorGuesser $validatorGuesser = null)
     {
         $this->translator = $translator;
         $this->validatorGuesser = $validatorGuesser;

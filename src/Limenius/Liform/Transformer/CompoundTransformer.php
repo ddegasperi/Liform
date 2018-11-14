@@ -14,8 +14,8 @@ namespace Limenius\Liform\Transformer;
 use Limenius\Liform\FormUtil;
 use Limenius\Liform\ResolverInterface;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormTypeGuesserInterface;
 use Symfony\Component\Translation\TranslatorInterface;
+use Limenius\Liform\Guesser\ValidatorGuesser;
 
 /**
  * @author Nacho Martín <nacho@limenius.com>
@@ -29,12 +29,12 @@ class CompoundTransformer extends AbstractTransformer
 
     /**
      * @param TranslatorInterface           $translator
-     * @param FormTypeGuesserInterface|null $validatorGuesser
+     * @param ValidatorGuesser|null $validatorGuesser
      * @param ResolverInterface             $resolver
      */
     public function __construct(
         TranslatorInterface $translator,
-        FormTypeGuesserInterface $validatorGuesser = null,
+        ValidatorGuesser $validatorGuesser = null,
         ResolverInterface $resolver
     ) {
         parent::__construct($translator, $validatorGuesser);
